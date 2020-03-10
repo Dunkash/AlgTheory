@@ -1,0 +1,182 @@
+\documentclass[fleqn]{article}
+\usepackage[T1]{fontenc}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{mathtools}
+
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+
+
+\title{Задание 1.2}
+\author{Максим Цыба}
+\date{\today}
+
+
+
+\begin{document}
+
+\maketitle
+
+\textbf{з)}Умножение числа, заданного в унарной системе счисления, на 2.
+\begin{gather*}
+\Sigma=\{1\}\\
+\Sigma'=\Sigma\cup\{*\}
+\end{gather*}
+
+\begin{cases}
+    *1 \rightarrow 11*\\
+    * \rightarrow .\epsilon\\
+    \epsilon \rightarrow *
+\end{cases}
+\[
+\_11\Rightarrow \underline{*1} 1 \Rightarrow 11\underline{*1}\Rightarrow 1111\underline{*}\Rightarrow1111
+\]
+\[
+\underline{\epsilon} \Rightarrow \underline{*} \Rightarrow \epsilon
+\]
+
+\textbf{и)}Вычисление частного и остатка от деления числа, заданного в унарной системе счисления, на два (над алфавитом \{1,\#\}). Результат должен записываться в виде частное\#остаток. Ноль должен соответствовать пустому слову.
+\begin{gather*}
+\Sigma=\{1,\#\}\\
+\Sigma'=\Sigma\cup\{*\}
+\end{gather*}
+
+\begin{cases}
+    *11 \rightarrow 1*\\
+    * \rightarrow .\#\\
+    \epsilon \rightarrow *
+\end{cases}
+\[
+\_1111\Rightarrow \underline{*11}11\Rightarrow 1\underline{*11}\Rightarrow 11\underline{*}\Rightarrow 11\#
+\]
+\[
+\_111\Rightarrow \underline{*11}1\Rightarrow 1\underline{*}1 \Rightarrow 1\#1
+\]
+
+\textbf{к)}Дублирование всех символов входного слова (над алфавитом \{a,b\}).
+\begin{gather*}
+\Sigma=\{\text{a,b}\}\\
+\Sigma'=\Sigma\cup\{*\}
+\end{gather*}
+
+
+\begin{cases}
+    *a \rightarrow aa*\\
+     *b \rightarrow bb*\\
+    * \rightarrow .\varepsilon\\
+    \varepsilon \rightarrow *
+\end{cases}
+\[
+\underline{\epsilon} \Rightarrow \underline{*} \Rightarrow \epsilon
+\]
+\[
+\_bab \Rightarrow \underline{*b}ab \Rightarrow bb\underline{*a}b\Rightarrow bbaa\underline{*b}\Rightarrow bbaabb\underline{*}\Rightarrow bbaabb
+\]
+
+\textbf{л)}Перестановка символов входного слова в обратном порядке (над алфавитом \{a,b\})
+\begin{gather*}
+\Sigma=\{\text{a,b}\}\\
+\Sigma'=\Sigma\cup\{*,\#,|\}
+\end{gather*}
+
+\begin{cases}
+*a\rightarrow a*\\
+*b\rightarrow b*\\
+* \rightarrow \# \\
+ab\# \rightarrow b\#a\\
+aa\# \rightarrow a\#a\\
+ba\# \rightarrow a\#b\\
+bb\# \rightarrow b\#b\\
+|a\# \rightarrow a|*\\
+|b\# \rightarrow b|a\\
+|\# \rightarrow. \varepsilon\\
+\varepsilon \rightarrow |*
+\end{cases}
+\[
+\_ab \Rightarrow |\underline{*a}b \Rightarrow |a\underline{*b} \Rightarrow |ab\underline{*} \Rightarrow |\underline{ab\#} \Rightarrow \underline{|b\#}a \Rightarrow b|\underline{*a} \Rightarrow b|a\underline{*} \Rightarrow  b\underline{|a\#} \Rightarrow ba\underline{|*} \Rightarrow ba 
+\]
+\[
+\underline{\varepsilon} \Rightarrow |\underline {*} \Rightarrow  \underline{|\#} \Rightarrow \varepsilon
+\]
+
+\textbf{м)}Cортировка символов входного слова (над алфавитом \{a,b,c\})
+\begin{gather*}
+\Sigma=\{\text{a,b}\}\\
+\Sigma'=\Sigma
+\end{gather*}
+\begin{cases}
+    ba \rightarrow ab\\
+    cb \rightarrow bc\\
+    ca \rightarrow ac\\
+\end{cases}
+\[
+    \epsilon
+\]
+\[
+    c\underline{ba} \Rightarrow \underline{ca}b \Rightarrow a\underline{cb}\Rightarrow abc
+\]
+
+\textbf{н)}Проверка, является ли входное слово палиндромом (над алфавитом \{a,b\}).Если является, то результатом должно быть пустое слово, если не является, то результатом может быть любое непустое слово.
+\begin{gather*}
+\Sigma=\{\text{a,b}\}\\
+\Sigma'=\Sigma\cup\{*,\#,|\}
+\end{gather*}
+
+\begin{cases}
+*a\rightarrow a*\\
+*b\rightarrow b*\\
+|a* \rightarrow .\varepsilon\\
+|b* \rightarrow .\varepsilon\\
+* \rightarrow \# \\
+ab\# \rightarrow b\#a\\
+aa\# \rightarrow a\#a\\
+ba\# \rightarrow a\#b\\
+bb\# \rightarrow b\#b\\
+|a\#a \rightarrow |*\\
+|b\#b \rightarrow |*\\
+|a\#b \rightarrow .a\\
+|b\#a \rightarrow .b\\
+|\# \rightarrow. \varepsilon\\
+\varepsilon \rightarrow |*
+\end{cases}
+
+\[
+\_aa \Rightarrow |\underline{*a}a \Rightarrow |a\underline{*a} \Rightarrow |aa\underline{*} \Rightarrow |\underline{aa\#} \Rightarrow \underline{|a\#a} \Rightarrow |\underline{*} \Rightarrow \underline{|\#} \Rightarrow \varepsilon
+\]
+\[
+\_ab \Rightarrow |\underline{*a}b \Rightarrow |a\underline{*b} \Rightarrow |ab\underline{*} \Rightarrow |\underline{ab\#} \Rightarrow \underline{|b\#a} \Rightarrow b
+\]
+
+\textbf{н)}Проверка, является ли входное слово именем одного из основных регистровпроцессора Intel 8088 (AX, BX, CX или DX). Результатом должно быть либо имя регистра, либо пустое слово.
+\begin{gather*}
+\Sigma=\{\text{A,B,C,D,H,L}\}\\
+\Sigma'=\Sigma\cup\{*,\#,|,\$\}\\
+\text{Условимся, что Х - любой символ алфавита}
+\end{gather*}
+\begin{cases}
+    *A \rightarrow A\#\\
+    *B \rightarrow B\#\\
+    *C \rightarrow C\#\\
+    *D \rightarrow D\#\\
+    * \rightarrow | \\
+    \#H \rightarrow H\$\\
+    \#L \rightarrow L\$\\
+    \# \rightarrow | \\ 
+    \$X\rightarrow | \\
+    \$ \rightarrow .\varepsilon \\
+    X| \rightarrow | \\
+    |X \rightarrow | \\
+    | \rightarrow .\varepsilon\\
+    \epsilon \rightarrow *
+\end{cases}
+
+\[
+\_AH \Rightarrow \underline{*A}H \Rightarrow A\underline{\#H}\Rightarrow AH\underline{\$}\Rightarrow AH
+\]
+\[
+\_LLL \Rightarrow \underline{*}LLL \Rightarrow \underline{|L}LL\Rightarrow \underline{|L}L\Rightarrow \underline{|L}\Rightarrow \underline{|}\Rightarrow \varepsilon
+\]
+\end{document}
